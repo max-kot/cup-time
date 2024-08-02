@@ -29,13 +29,27 @@ button {
 	font-size: inherit;
 	cursor: pointer;
 }
+/* отрубаем кнопочки у number*/
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin: 0;
+}
+/*============*/
 
 body {
 	font-family: "Inter", sans-serif;
 	font-size: 20px;
 	background: #fff;
 	color: #1d1c1d;
-	min-width: 360px;
+	min-width: 320px;
 }
 
 body * {
@@ -53,7 +67,7 @@ body * {
 
 .main__cart {
 	display: grid;
-	grid-template-columns: 1fr 0.49fr;
+	grid-template-columns: 2fr 1fr;
 	padding: 215px 10px 100px;
 	gap: 100px 20px;
 	align-items: start;
@@ -190,6 +204,17 @@ body * {
 	display: flex;
 	flex-direction: column;
 }
+
+.product--cart .product__content {
+	padding: 16px;
+}
+.product--cart .product__title {
+	margin-bottom: 8px;
+}
+.product--cart .product__counter {
+	margin-bottom: 20px;
+}
+
 .product__image {
 	position: relative;
 	padding-bottom: 80%;
@@ -539,6 +564,24 @@ body * {
 	.footer__developers {
 		order: 2;
 	}
+
+	.main__cart {
+		grid-template-columns: 1fr;
+		gap: 40px;
+		padding: 100px 10px 80px;
+	}
+
+	.order {
+		grid-column: 1;
+		grid-row: 1;
+		margin-top: unset;
+	}
+	.cart {
+		grid-row: 2;
+		margin-bottom: 20px;
+	}
+	.delivery {
+	}
 }
 
 @media (max-width: 540px) {
@@ -560,6 +603,14 @@ body * {
 	}
 
 	.products__list {
+		grid-template-columns: 1fr;
+	}
+	.main__cart {
+		grid-template-columns: 1fr;
+		gap: 40px;
+		padding: 80px 10px 60px;
+	}
+	.cart__list {
 		grid-template-columns: 1fr;
 	}
 }
